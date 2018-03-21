@@ -1,27 +1,28 @@
 {
     "__default__" :
     {
-        "time" : "00:15",
-        "cpu": 1,
-        "email" : "mtang1@mdanderson.org",
-        "EmailNotice": "N",
-        "MaxMem": 16384,
-        "queue" : "short"
+        "account": "mint",
+        "time" : "9000",
+        "nodes": 1,
+        "partition" : "slurm",
+        "name" : "{rule}.{wildcards}",
+        "output": "{rule}.{wildcards}.out",
+        "error": "{rule}.{wildcards}.err"
     },
     "tile_seg" :
     {
         "time" : "0:30",
-        "cpu" : 1
+        "partition" : "shared"
     },
     "state_recode_seg":
     {
         "time" : "0:30",
-        "cpu" : 1
+        "partition" : "shared"
     },
     "combine_sample_segs":
     {
         "time" : "0:30",
-        "cpu" : 1
+        "partition" : "shared"
     },
     "split_epilogos_input_by_chr":
     {
@@ -31,7 +32,7 @@
     "run_epilogos_by_chr":
     {
         "time" : "0:30",
-        "cpu" : 1
+        "partition" : "shared"
     },
     "merge_epilogos":
     {
@@ -51,10 +52,8 @@
     },
     "run_vsurf_by_chr":
     {
-       "time": "24:00",
-       "cpu": 12,
-       "MaxMem": 81920,
-       "queue" : "medium"
+       "time": "9000",
+       "queue" : "slurm"
     }
 
 }

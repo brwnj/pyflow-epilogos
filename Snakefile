@@ -2,6 +2,7 @@ shell.prefix("set -eo pipefail; echo BEGIN at $(date); ")
 shell.suffix("; exitstat=$?; echo END at $(date); echo exit status was $exitstat; exit $exitstat")
 
 configfile: "config.yaml"
+# localrules:
 
 # load cluster config file
 CLUSTER = json.load(open(config['CLUSTER_JSON']))
@@ -25,7 +26,11 @@ TARGETS.extend(EPILOGOS_INPUT)
 TARGETS.extend(EPILOGOS_OUTPUT)
 TARGETS.extend(VSURF_OUTPUT)
 
-localrules: all
+localrules: all, tile_seg state_recode_seg, combine_sample_segs, \
+    split_epilogos_input_by_chr, run_epilogos_by_chr, merge_epilogos, \
+    merge_bin_vsurf, prefilter_vsurf, split_vsurf_input_by_chr
+
+
 rule all:
     input: TARGETS
 
