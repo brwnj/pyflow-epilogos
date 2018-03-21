@@ -10,7 +10,7 @@ import argparse
 from collections import defaultdict
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--segment_dir", help="Required. the FULL path to the chromHMM segment folder")
+parser.add_argument("segment_dir", help="Required. the FULL path to the chromHMM segment folder")
 args = parser.parse_args()
 
 assert args.segment_dir is not None, "please provide the path to the chromHMM segment folder"
